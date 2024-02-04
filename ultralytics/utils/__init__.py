@@ -12,7 +12,7 @@ import threading
 import time
 import urllib
 import uuid
-from pathlib import Path
+from pathlib import Path, WindowsPath
 from types import SimpleNamespace
 from typing import Union
 
@@ -33,6 +33,7 @@ LOCAL_RANK = int(os.getenv("LOCAL_RANK", -1))  # https://pytorch.org/docs/stable
 FILE = Path(__file__).resolve()
 ROOT = FILE.parents[1]  # YOLO
 ASSETS = ROOT / "assets"  # default images
+FRAME_SAMPLE = WindowsPath("C:\\Users\\filip\\FIIT\\Bakalarka\\frame_sample")
 DEFAULT_CFG_PATH = ROOT / "cfg/default.yaml"
 NUM_THREADS = min(8, max(1, os.cpu_count() - 1))  # number of YOLOv5 multiprocessing threads
 AUTOINSTALL = str(os.getenv("YOLO_AUTOINSTALL", True)).lower() == "true"  # global auto-install mode
